@@ -1,0 +1,170 @@
+/**
+ * Contact Section
+ * Contact form, info items, and map
+ */
+
+/* ═══════════════════════════════════════════════════════════
+   CONTACT BASE
+   ═══════════════════════════════════════════════════════════ */
+
+.contact {
+    background: var(--bg-primary);
+}
+
+/* ─────────────────────────────────────────────────────
+   CONTACT LAYOUT
+   ───────────────────────────────────────────────────── */
+
+.contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+}
+
+@media (max-width: 1023px) {
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+        gap: var(--space-10);
+    }
+}
+
+/* ─────────────────────────────────────────────────────
+   CONTACT INFO
+   ───────────────────────────────────────────────────── */
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+}
+
+/* ─────────────────────────────────────────────────────
+   INFO ITEM
+   ───────────────────────────────────────────────────── */
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-4);
+    padding: var(--space-6);
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    border: 2px solid transparent;
+}
+
+.info-item:hover {
+    background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-light) 100%);
+    border-color: var(--brand-gold);
+    transform: translateX(8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.info-item i {
+    font-size: 1.75rem;
+    color: var(--brand-gold);
+    min-width: 35px;
+    flex-shrink: 0;
+    transition: transform var(--transition-base);
+}
+
+.info-item:hover i {
+    transform: scale(1.1);
+}
+
+.info-content h4 {
+    font-size: var(--text-base);
+    margin-bottom: var(--space-2);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    transition: color var(--transition-base);
+}
+
+.info-content p,
+.info-content a {
+    color: var(--text-secondary);
+    font-size: var(--text-sm);
+    line-height: var(--leading-normal);
+    transition: color var(--transition-base);
+}
+
+.info-item:hover .info-content h4 {
+    color: var(--text-inverse);
+}
+
+.info-item:hover .info-content p,
+.info-item:hover .info-content a {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* ─────────────────────────────────────────────────────
+   WHATSAPP INFO ITEM
+   ───────────────────────────────────────────────────── */
+
+.whatsapp-info {
+    background: linear-gradient(135deg, rgba(37, 211, 102, 0.1) 0%, rgba(18, 140, 126, 0.1) 100%);
+    border: 2px solid rgba(37, 211, 102, 0.3);
+}
+
+.whatsapp-info i {
+    color: #25D366;
+}
+
+.whatsapp-info:hover {
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    border-color: #25D366;
+}
+
+.whatsapp-info:hover i {
+    color: #FFFFFF !important;
+}
+
+.whatsapp-info:hover .info-content h4,
+.whatsapp-info:hover .info-content a {
+    color: #FFFFFF;
+}
+
+/* ─────────────────────────────────────────────────────
+   CONTACT MAP
+   ───────────────────────────────────────────────────── */
+
+.contact-map {
+    width: 100%;
+    height: 320px;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    margin-top: var(--space-8);
+    box-shadow: var(--shadow-md);
+}
+
+.contact-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+@media (max-width: 640px) {
+    .info-item {
+        padding: 16px;
+        gap: 12px;
+    }
+    
+    .info-item i {
+        font-size: 1.3rem;
+        min-width: 28px;
+    }
+    
+    .info-content h4 {
+        font-size: var(--text-sm);
+    }
+    
+    .info-content p,
+    .info-content a {
+        font-size: var(--text-xs);
+    }
+    
+    .contact-map {
+        height: 200px;
+        margin-top: 20px;
+    }
+}

@@ -1,0 +1,36 @@
+/**
+ * Practice Areas Section
+ * Grid of services/specialties cards
+ */
+
+/* ═══════════════════════════════════════════════════════════
+   AREAS BASE
+   ═══════════════════════════════════════════════════════════ */
+
+.practice-areas {
+    background: var(--bg-secondary);
+}
+
+/* ─────────────────────────────────────────────────────
+   AREAS GRID
+   ───────────────────────────────────────────────────── */
+
+.areas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+}
+
+@media (max-width: 1024px) {
+    .areas-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-6);
+    }
+}
+
+@media (max-width: 640px) {
+    .areas-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+    }
+}

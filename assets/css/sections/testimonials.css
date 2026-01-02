@@ -1,0 +1,21 @@
+/**
+ * Testimonials Section
+ * Client reviews and ratings
+ */
+
+/* ═══════════════════════════════════════════════════════════
+   TESTIMONIALS BASE
+   ═══════════════════════════════════════════════════════════ */
+
+.testimonials {
+    background: var(--bg-secondary);
+}
+
+/* ─────────────────────────────────────────────────────
+   TESTIMONIALS CONTAINER
+   ───────────────────────────────────────────────────── */
+
+.testimonials-container {
+    max-width: 900px;
+    margin: 0 auto;
+}

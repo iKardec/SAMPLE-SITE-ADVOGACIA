@@ -1,0 +1,206 @@
+/**
+ * Forms Component
+ * Input fields, selects, textareas, and form layouts
+ */
+
+/* ─────────────────────────────────────────────────────
+   FORM CONTAINER
+   ───────────────────────────────────────────────────── */
+
+.contact-form {
+    background: var(--card-bg);
+    padding: var(--space-10);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+@media (max-width: 640px) {
+    .contact-form {
+        padding: 20px;
+    }
+}
+
+/* ─────────────────────────────────────────────────────
+   FORM GROUP
+   ───────────────────────────────────────────────────── */
+
+.form-group {
+    margin-bottom: var(--space-6);
+}
+
+/* ─────────────────────────────────────────────────────
+   FORM LABEL
+   ───────────────────────────────────────────────────── */
+
+.form-label {
+    display: block;
+    font-family: var(--font-heading);
+    font-weight: var(--font-semibold);
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* ─────────────────────────────────────────────────────
+   INPUTS, SELECTS, TEXTAREAS
+   ───────────────────────────────────────────────────── */
+
+.form-input,
+.form-select,
+.form-textarea {
+    width: 100%;
+    padding: var(--space-4) var(--space-5);
+    border: 2px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    font-size: 16px; /* Prevents zoom on iOS */
+    transition: 
+        border-color var(--transition-base),
+        box-shadow var(--transition-base);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.form-input::placeholder,
+.form-textarea::placeholder {
+    color: var(--text-tertiary);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+    border-color: var(--brand-gold);
+    box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.15);
+    outline: none;
+}
+
+/* ─────────────────────────────────────────────────────
+   TEXTAREA
+   ───────────────────────────────────────────────────── */
+
+.form-textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+/* ─────────────────────────────────────────────────────
+   SELECT
+   ───────────────────────────────────────────────────── */
+
+.form-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23475569' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px;
+    cursor: pointer;
+}
+
+/* ─────────────────────────────────────────────────────
+   CHECKBOX
+   ───────────────────────────────────────────────────── */
+
+.form-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+}
+
+.form-checkbox input[type="checkbox"] {
+    margin-top: 3px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    flex-shrink: 0;
+    accent-color: var(--brand-gold);
+}
+
+.form-checkbox label {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    line-height: var(--leading-normal);
+    cursor: pointer;
+}
+
+/* ─────────────────────────────────────────────────────
+   ERROR STATE
+   ───────────────────────────────────────────────────── */
+
+.form-error {
+    color: var(--color-error);
+    font-size: var(--text-sm);
+    margin-top: var(--space-2);
+    display: none;
+}
+
+.form-group.error .form-input,
+.form-group.error .form-select,
+.form-group.error .form-textarea {
+    border-color: var(--color-error);
+}
+
+.form-group.error .form-error {
+    display: block;
+}
+
+/* ─────────────────────────────────────────────────────
+   SUCCESS MESSAGE
+   ───────────────────────────────────────────────────── */
+
+.form-success {
+    background: var(--color-success);
+    color: #FFFFFF;
+    padding: var(--space-4);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    display: none;
+    margin-bottom: var(--space-6);
+}
+
+.form-success.show {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+}
+
+/* ─────────────────────────────────────────────────────
+   SUBMIT OPTIONS
+   ───────────────────────────────────────────────────── */
+
+.submit-options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: var(--space-2);
+}
+
+.submit-options .btn {
+    width: 100%;
+}
+
+/* ─────────────────────────────────────────────────────
+   FORM DIVIDER
+   ───────────────────────────────────────────────────── */
+
+.form-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: var(--text-tertiary);
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.form-divider::before,
+.form-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border-light);
+}

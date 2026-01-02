@@ -1,0 +1,12 @@
+# Kardec Advocacia - robots.txt
+# https://www.kardecadvocacia.com.br
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://www.kardecadvocacia.com.br/sitemap.xml
+
+# Bloquear arquivos de desenvolvimento
+Disallow: /.git/
+Disallow: /node_modules/

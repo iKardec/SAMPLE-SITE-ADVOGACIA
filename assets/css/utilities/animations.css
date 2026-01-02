@@ -1,0 +1,131 @@
+/**
+ * Animations - Keyframes and scroll-triggered effects
+ */
+
+
+/* Fade In */
+
+.fade-in {
+    opacity: 0;
+    transition: 
+        opacity 0.8s ease-out,
+        transform 0.8s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   DIRECTIONAL FADES
+   ═══════════════════════════════════════════════════════════ */
+
+/* Fade from Left */
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: 
+        opacity 0.8s ease-out,
+        transform 0.8s ease-out;
+}
+
+.fade-in-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Fade from Right */
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: 
+        opacity 0.8s ease-out,
+        transform 0.8s ease-out;
+}
+
+.fade-in-right.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Fade from Bottom (most common) */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 
+        opacity 0.8s ease-out,
+        transform 0.8s ease-out;
+}
+
+.fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   SCALE IN
+   ═══════════════════════════════════════════════════════════ */
+
+.scale-in {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: 
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
+}
+
+.scale-in.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   UTILITY ANIMATIONS (Always running)
+   ═══════════════════════════════════════════════════════════ */
+
+/* Pulse - subtle breathing effect */
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.animate-pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Bounce - attention grabber */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.animate-bounce {
+    animation: bounce 1s ease-in-out infinite;
+}
+
+/* Spin - loading indicator */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.animate-spin {
+    animation: spin 1s linear infinite;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   DELAY CLASSES (For staggered animations)
+   ═══════════════════════════════════════════════════════════ */
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+.delay-600 { transition-delay: 600ms; }
+.delay-700 { transition-delay: 700ms; }
+.delay-800 { transition-delay: 800ms; }

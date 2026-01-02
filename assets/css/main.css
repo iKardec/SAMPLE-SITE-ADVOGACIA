@@ -1,0 +1,94 @@
+/**
+ * KARDEC ADVOCACIA - Main CSS Entry Point
+ * Arquitetura modular com @import
+ */
+
+/* @import DEVE vir antes de qualquer regra CSS */
+@import './base/reset.css';
+@import './base/tokens.css';
+@import './base/typography.css';
+@import './components/buttons.css';
+@import './components/badges.css';
+@import './components/cards.css';
+@import './components/forms.css';
+@import './components/social.css';
+@import './sections/header.css';
+@import './sections/hero.css';
+@import './sections/about.css';
+@import './sections/areas.css';
+@import './sections/team.css';
+@import './sections/testimonials.css';
+@import './sections/contact.css';
+@import './sections/footer.css';
+@import './utilities/animations.css';
+@import './utilities/helpers.css';
+@import './utilities/floating.css';
+
+
+/* PAGE LOADER */
+.page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+    background: linear-gradient(135deg, #0D1B2A 0%, #1B3A4B 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.page-loader.loaded {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.loader-logo {
+    font-size: 4rem;
+    color: #C9A227;
+    margin-bottom: 2rem;
+    animation: loaderPulse 1.5s ease-in-out infinite;
+}
+
+.loader-bar {
+    width: 200px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.loader-progress {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #C9A227, #DCBA3B, #C9A227);
+    background-size: 200% 100%;
+    border-radius: 3px;
+    animation: loaderProgress 1.5s ease-out forwards, loaderShimmer 1s linear infinite;
+}
+
+.loader-text {
+    margin-top: 1.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+@keyframes loaderPulse {
+    0%, 100% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+@keyframes loaderProgress {
+    0% { width: 0%; }
+    50% { width: 70%; }
+    100% { width: 100%; }
+}
+
+@keyframes loaderShimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="light">
 
 <head>
   <!-- ==================== META TAGS ==================== -->
@@ -29,8 +29,15 @@
   <meta property="twitter:image" content="./assets/images/og-image.jpg">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/logo/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="./assets/images/logo/favicon-16x16.png">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚖️</text></svg>">
+  <link rel="apple-touch-icon" href="./assets/images/icons/icon-192x192.png">
+  
+  <!-- Web App Manifest -->
+  <link rel="manifest" href="./manifest.json">
+  <meta name="theme-color" content="#C9A227">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Kardec Adv">
 
   <!-- ==================== FONTS ==================== -->
   <!-- Google Fonts -->
@@ -45,12 +52,8 @@
     integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!-- ==================== STYLESHEETS ==================== -->
-  <link rel="stylesheet" href="./assets/css/reset.css">
-  <link rel="stylesheet" href="./assets/css/variables.css">
-  <link rel="stylesheet" href="./assets/css/global.css">
-  <link rel="stylesheet" href="./assets/css/components.css">
-  <link rel="stylesheet" href="./assets/css/sections.css">
+  <!-- ==================== STYLESHEET ==================== -->
+  <link rel="stylesheet" href="./assets/css/main.css">
 
   <!-- Page Title -->
   <title>Kardec Advocacia - Excelência e Compromisso Jurídico</title>
@@ -85,19 +88,38 @@
 
 <body>
 
+  <!-- ==================== PAGE LOADER ==================== -->
+  <div class="page-loader" id="pageLoader">
+    <i class="fas fa-balance-scale loader-logo"></i>
+    <div class="loader-bar">
+      <div class="loader-progress"></div>
+    </div>
+    <span class="loader-text">Carregando...</span>
+  </div>
+
+  <!-- Skip to content link (Accessibility) -->
+  <a href="#home" class="skip-link">Pular para o conteúdo principal</a>
+
   <!-- ==================== HEADER / NAVBAR ==================== -->
   <header class="header" id="header">
     <div class="container">
       <!-- Logo -->
-      <a href="#home" class="logo">
-        <i class="fas fa-balance-scale"></i>
+      <a href="#home" class="logo" aria-label="Kardec Advocacia - Página inicial">
+        <i class="fas fa-balance-scale" aria-hidden="true"></i>
         <span>Kardec Advocacia</span>
       </a>
 
+      <!-- Mobile Toggle (Hamburger) -->
+      <button class="mobile-toggle" id="mobileToggle" type="button" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
       <!-- Navigation -->
-      <nav class="nav" id="nav">
+      <nav class="nav" id="nav" role="navigation" aria-label="Menu principal">
         <ul class="nav-list">
-          <li><a href="#home" class="nav-link active">Início</a></li>
+          <li><a href="#home" class="nav-link active" aria-current="page">Início</a></li>
           <li><a href="#about" class="nav-link">Sobre</a></li>
           <li><a href="#areas" class="nav-link">Áreas de Atuação</a></li>
           <li><a href="#team" class="nav-link">Equipe</a></li>
@@ -105,15 +127,11 @@
           <li><a href="#contact" class="nav-link">Contato</a></li>
         </ul>
 
-        <a href="#contact" class="btn btn-primary">Agendar Consulta</a>
+        <a href="#contact" class="btn btn-primary">
+          <i class="fas fa-calendar-check" aria-hidden="true"></i>
+          Agendar Consulta
+        </a>
       </nav>
-
-      <!-- Mobile Toggle -->
-      <div class="mobile-toggle" id="mobileToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
     </div>
   </header>
 
@@ -123,6 +141,14 @@
     <div class="hero-bg">
       <img src="./assets/images/hero/hero-bg.jpg" alt="Escritório de Advocacia">
       <div class="overlay overlay-gradient"></div>
+    </div>
+
+    <!-- Floating Orbs - Decorative animated elements (desktop only) -->
+    <div class="hero-orbs" id="heroOrbs">
+      <div class="hero-orb"></div>
+      <div class="hero-orb"></div>
+      <div class="hero-orb"></div>
+      <div class="hero-orb"></div>
     </div>
 
     <!-- Conteúdo do Hero -->
@@ -142,6 +168,26 @@
       <div class="hero-buttons fade-in">
         <a href="#contact" class="btn btn-primary btn-lg">Agendar Consulta Gratuita</a>
         <a href="#about" class="btn btn-outline btn-lg">Conheça Nossa Equipe</a>
+      </div>
+
+      <!-- Trust Badges Hero -->
+      <div class="trust-badges fade-in">
+        <div class="trust-badge">
+          <i class="fas fa-shield-alt"></i>
+          <span>+5.000 Casos</span>
+        </div>
+        <div class="trust-badge">
+          <i class="fas fa-award"></i>
+          <span>95% Sucesso</span>
+        </div>
+        <div class="trust-badge">
+          <i class="fas fa-clock"></i>
+          <span>Atendimento 24h</span>
+        </div>
+        <div class="trust-badge">
+          <i class="fas fa-handshake"></i>
+          <span>Consulta Gratuita</span>
+        </div>
       </div>
     </div>
 
@@ -493,15 +539,21 @@
             <div class="form-checkbox">
               <input type="checkbox" id="consent" name="consent" required>
               <label for="consent">
-                Concordo com a <a href="#" style="color: var(--primary-gold);">Política de Privacidade</a>
+                Concordo com a <a href="#" class="text-gold">Política de Privacidade</a>
                 e autorizo o uso dos meus dados para contato.
               </label>
             </div>
 
-            <!-- Botão Submit -->
-            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
-              <i class="fas fa-paper-plane"></i> Enviar Mensagem
-            </button>
+            <!-- Botões de Envio -->
+            <div class="submit-options">
+              <button type="submit" class="btn btn-primary btn-lg">
+                <i class="fas fa-paper-plane"></i> Enviar Mensagem
+              </button>
+              <div class="form-divider"><span>ou</span></div>
+              <button type="button" class="btn btn-whatsapp btn-lg" id="whatsappSubmit">
+                <i class="fab fa-whatsapp"></i> Enviar via WhatsApp
+              </button>
+            </div>
           </form>
         </div>
 
@@ -523,6 +575,17 @@
               <h4>Telefone</h4>
               <a href="tel:+551130000000">+55 11 3000-0000</a><br>
               <a href="tel:+5511999999999">+55 11 99999-9999</a>
+            </div>
+          </div>
+
+          <!-- WhatsApp -->
+          <div class="info-item whatsapp-info">
+            <i class="fab fa-whatsapp"></i>
+            <div class="info-content">
+              <h4>WhatsApp</h4>
+              <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener">
+                Clique para conversar agora
+              </a>
             </div>
           </div>
 
@@ -567,7 +630,7 @@
             Escritório de advocacia comprometido com a excelência
             e a defesa dos direitos de nossos clientes desde 2004.
           </p>
-          <div class="social-links" style="margin-top: var(--spacing-md);">
+          <div class="social-links">
             <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
             <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
             <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
@@ -623,12 +686,32 @@
     </div>
   </footer>
 
+  <!-- ==================== WHATSAPP FLOATING BUTTON ==================== -->
+  <div class="whatsapp-float">
+    <span class="whatsapp-tooltip">Fale conosco no WhatsApp!</span>
+    <a href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20consulta%20com%20o%20Kardec%20Advocacia." 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="whatsapp-btn" 
+       aria-label="Fale conosco no WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- ==================== THEME TOGGLE BUTTON ==================== -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">
+    <i class="fas fa-moon"></i>
+    <i class="fas fa-sun"></i>
+  </button>
+
+  <!-- ==================== SCROLL TO TOP BUTTON ==================== -->
+  <button class="scroll-top" id="scrollTop" aria-label="Voltar ao topo">
+    <i class="fas fa-chevron-up"></i>
+  </button>
+
   <!-- ==================== SCRIPTS ==================== -->
-  <script src="./assets/js/utils.js"></script>
-  <script src="./assets/js/navigation.js"></script>
-  <script src="./assets/js/animations.js"></script>
-  <script src="./assets/js/form.js"></script>
-  <script src="./assets/js/main.js"></script>
+  <!-- Script consolidado - funciona sem servidor local -->
+  <script src="./assets/js/app.js"></script>
 
 </body>
 

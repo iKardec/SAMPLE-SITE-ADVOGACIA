@@ -1,0 +1,177 @@
+/**
+ * Typography
+ * Base typography styles and heading hierarchy
+ */
+
+body {
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--font-regular);
+    line-height: var(--leading-normal);
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+}
+
+/* ─────────────────────────────────────────────────────
+   HEADINGS
+   ───────────────────────────────────────────────────── */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: var(--font-bold);
+    line-height: var(--leading-tight);
+    color: var(--text-primary);
+    margin-bottom: var(--space-4);
+}
+
+h1 {
+    font-size: clamp(2rem, 5vw, var(--text-5xl));
+    font-weight: var(--font-extrabold);
+}
+
+h2 {
+    font-size: clamp(1.75rem, 4vw, var(--text-4xl));
+}
+
+h3 {
+    font-size: clamp(1.25rem, 3vw, var(--text-2xl));
+    font-weight: var(--font-semibold);
+}
+
+h4 {
+    font-size: clamp(1.1rem, 2vw, var(--text-xl));
+    font-weight: var(--font-semibold);
+}
+
+h5 {
+    font-size: var(--text-lg);
+    font-weight: var(--font-semibold);
+}
+
+h6 {
+    font-size: var(--text-base);
+    font-weight: var(--font-semibold);
+}
+
+/* ─────────────────────────────────────────────────────
+   PARAGRAPHS & TEXT
+   ───────────────────────────────────────────────────── */
+
+p {
+    margin-bottom: var(--space-4);
+    color: var(--text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+strong, b {
+    font-weight: var(--font-bold);
+}
+
+em, i {
+    font-style: italic;
+}
+
+small {
+    font-size: var(--text-sm);
+}
+
+/* ─────────────────────────────────────────────────────
+   LINKS
+   ───────────────────────────────────────────────────── */
+
+a {
+    color: var(--text-link);
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--accent-primary);
+}
+
+/* ─────────────────────────────────────────────────────
+   CONTAINER
+   ───────────────────────────────────────────────────── */
+
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--space-4);
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 var(--space-6);
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 var(--space-8);
+    }
+}
+
+/* ─────────────────────────────────────────────────────
+   SECTION DEFAULTS
+   ───────────────────────────────────────────────────── */
+
+section {
+    padding: var(--space-16) 0;
+    position: relative;
+}
+
+@media (min-width: 768px) {
+    section {
+        padding: var(--space-20) 0;
+    }
+}
+
+/* ─────────────────────────────────────────────────────
+   SECTION TITLE COMPONENT
+   ───────────────────────────────────────────────────── */
+
+.section-title {
+    text-align: center;
+    margin-bottom: var(--space-12);
+}
+
+.section-title h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: var(--space-4);
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, var(--brand-gold) 0%, var(--brand-gold-light) 100%);
+    border-radius: var(--radius-full);
+}
+
+.section-subtitle {
+    font-size: var(--text-lg);
+    color: var(--text-tertiary);
+    max-width: 700px;
+    margin: var(--space-4) auto 0;
+    line-height: var(--leading-relaxed);
+}
+
+@media (max-width: 640px) {
+    .section-title {
+        margin-bottom: var(--space-8);
+    }
+    
+    .section-title h2 {
+        font-size: var(--text-2xl);
+    }
+    
+    .section-subtitle {
+        font-size: var(--text-base);
+        padding: 0 var(--space-4);
+    }
+}

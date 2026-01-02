@@ -1,0 +1,67 @@
+/**
+ * Social Component
+ * Social links and sharing buttons
+ */
+
+/* ─────────────────────────────────────────────────────
+   SOCIAL LINKS CONTAINER
+   ───────────────────────────────────────────────────── */
+
+.social-links {
+    display: flex;
+    gap: var(--space-3);
+    align-items: center;
+}
+
+/* ─────────────────────────────────────────────────────
+   SOCIAL LINK BUTTON
+   ───────────────────────────────────────────────────── */
+
+.social-link {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--border-medium);
+    color: var(--text-tertiary);
+    transition: 
+        background-color var(--transition-base),
+        border-color var(--transition-base),
+        color var(--transition-base),
+        transform var(--transition-base),
+        box-shadow var(--transition-base);
+    font-size: var(--text-lg);
+}
+
+.social-link:hover {
+    background: linear-gradient(135deg, var(--brand-gold) 0%, var(--brand-gold-light) 100%);
+    border-color: var(--brand-gold);
+    color: var(--brand-navy);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.35);
+}
+
+/* ─────────────────────────────────────────────────────
+   FOOTER SOCIAL LINKS (Dark variant)
+   ───────────────────────────────────────────────────── */
+
+.footer .social-link {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer .social-link:hover {
+    background: var(--brand-gold);
+    border-color: var(--brand-gold);
+    color: var(--brand-navy);
+}
+
+/* ─────────────────────────────────────────────────────
+   TEAM SOCIAL (Centered)
+   ───────────────────────────────────────────────────── */
+
+.team-social {
+    justify-content: center;
+}

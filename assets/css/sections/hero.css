@@ -1,0 +1,302 @@
+/**
+ * Hero Section - Main banner with visual effects
+ */
+
+
+/* Hero Container */
+
+.hero {
+    position: relative;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--text-inverse);
+    overflow: hidden;
+    padding-top: var(--header-height);
+}
+
+@media (min-width: 1024px) {
+    .hero {
+        padding-top: var(--header-height-desktop);
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   HERO BACKGROUND WITH GRADIENT OVERLAY
+   ═══════════════════════════════════════════════════════════ */
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+}
+
+.hero-bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Gradient overlay */
+.hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg, 
+        rgba(13, 27, 42, 0.94) 0%, 
+        rgba(27, 58, 75, 0.85) 50%, 
+        rgba(13, 27, 42, 0.94) 100%
+    );
+}
+
+/* Additional overlay utility class */
+.overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.overlay-gradient {
+    background: linear-gradient(
+        135deg, 
+        rgba(13, 27, 42, 0.94) 0%, 
+        rgba(27, 58, 75, 0.85) 50%, 
+        rgba(13, 27, 42, 0.94) 100%
+    );
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   FLOATING ORBS - Animated decorative elements (Desktop Only)
+   Creates an impressive, dynamic atmosphere
+   ═══════════════════════════════════════════════════════════ */
+
+.hero-orbs {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+/* Base orb style */
+.hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    opacity: 0.4;
+    animation: floatOrb 20s ease-in-out infinite;
+}
+
+/* Orb 1 - Large gold */
+.hero-orb:nth-child(1) {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(201, 162, 39, 0.5) 0%, transparent 70%);
+    top: -150px;
+    right: -100px;
+    animation-delay: 0s;
+    animation-duration: 25s;
+}
+
+/* Orb 2 - Medium navy */
+.hero-orb:nth-child(2) {
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(27, 58, 75, 0.7) 0%, transparent 70%);
+    bottom: -100px;
+    left: -100px;
+    animation-delay: -5s;
+    animation-duration: 20s;
+}
+
+/* Orb 3 - Small gold accent */
+.hero-orb:nth-child(3) {
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(220, 186, 59, 0.4) 0%, transparent 70%);
+    top: 50%;
+    left: 15%;
+    animation-delay: -10s;
+    animation-duration: 18s;
+}
+
+/* Orb 4 - Tiny highlight */
+.hero-orb:nth-child(4) {
+    width: 150px;
+    height: 150px;
+    background: radial-gradient(circle, rgba(201, 162, 39, 0.6) 0%, transparent 70%);
+    top: 30%;
+    right: 20%;
+    animation-delay: -7s;
+    animation-duration: 15s;
+}
+
+/* Float animation */
+@keyframes floatOrb {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    25% {
+        transform: translate(30px, -40px) scale(1.05);
+    }
+    50% {
+        transform: translate(-20px, 20px) scale(0.95);
+    }
+    75% {
+        transform: translate(40px, 30px) scale(1.02);
+    }
+}
+
+/* Mouse interactive effect - orbs container */
+.hero-orbs[data-mouse-x] .hero-orb {
+    transition: transform 0.3s ease-out;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   HERO CONTENT
+   ═══════════════════════════════════════════════════════════ */
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    padding: 0 var(--space-4);
+}
+
+/* Badge above title */
+.hero-badge {
+    margin-bottom: var(--space-6);
+}
+
+/* Main heading - ALWAYS white in both themes */
+.hero h1,
+[data-theme="light"] .hero h1,
+[data-theme="dark"] .hero h1 {
+    color: #FFFFFF !important;
+    margin-bottom: var(--space-6);
+    text-shadow: 
+        0 0 40px rgba(201, 162, 39, 0.25),
+        0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Subtitle paragraph - ALWAYS white in both themes */
+.hero p,
+[data-theme="light"] .hero p,
+[data-theme="dark"] .hero p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-10);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   HERO BUTTONS
+   ═══════════════════════════════════════════════════════════ */
+
+.hero-buttons {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   SCROLL INDICATOR - Animated mouse icon
+   ═══════════════════════════════════════════════════════════ */
+
+.scroll-indicator {
+    position: absolute;
+    bottom: var(--space-10);
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* Mouse shape */
+    width: 28px;
+    height: 46px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    border-radius: var(--radius-full);
+    
+    /* Layout */
+    display: flex;
+    justify-content: center;
+    padding-top: 8px;
+    opacity: 0.7;
+    
+    /* Animation */
+    animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* Scroll dot inside mouse */
+.scroll-indicator::before {
+    content: '';
+    width: 6px;
+    height: 10px;
+    background: #FFFFFF;
+    border-radius: var(--radius-full);
+    animation: scrollDot 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollDot {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(18px); opacity: 0; }
+}
+
+@keyframes scrollBounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE - Mobile adjustments
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    /* Hide orbs on mobile for performance */
+    .hero-orbs {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-content {
+        padding: 20px 16px;
+    }
+    
+    .hero h1 {
+        font-size: clamp(1.6rem, 7vw, 2.2rem);
+        line-height: var(--leading-tight);
+        margin-bottom: 16px;
+    }
+    
+    .hero p {
+        font-size: var(--text-sm);
+        margin-bottom: 24px;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        gap: var(--space-3);
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+    }
+    
+    .scroll-indicator {
+        bottom: 20px;
+        transform: translateX(-50%) scale(0.8);
+    }
+}

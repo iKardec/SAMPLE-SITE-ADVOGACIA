@@ -1,0 +1,134 @@
+/**
+ * About Section
+ * Company overview with stats and features
+ */
+
+/* ═══════════════════════════════════════════════════════════
+   ABOUT BASE
+   ═══════════════════════════════════════════════════════════ */
+
+.about {
+    background: var(--bg-primary);
+}
+
+/* ─────────────────────────────────────────────────────
+   ABOUT LAYOUT
+   ───────────────────────────────────────────────────── */
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-20);
+    align-items: center;
+}
+
+@media (max-width: 1023px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: var(--space-12);
+    }
+}
+
+/* ─────────────────────────────────────────────────────
+   ABOUT TEXT
+   ───────────────────────────────────────────────────── */
+
+.about-text h2 {
+    text-align: left;
+    margin-bottom: var(--space-6);
+    position: relative;
+}
+
+.about-text h2::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, var(--brand-gold) 0%, var(--brand-gold-light) 100%);
+    border-radius: var(--radius-full);
+}
+
+.about-text p {
+    margin-bottom: var(--space-5);
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+}
+
+.about-text p strong {
+    color: var(--brand-gold);
+}
+
+@media (max-width: 640px) {
+    .about-text h2 {
+        text-align: center;
+    }
+    
+    .about-text h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .about-text p {
+        text-align: center;
+        font-size: var(--text-base);
+    }
+}
+
+/* ─────────────────────────────────────────────────────
+   FEATURES GRID
+   ───────────────────────────────────────────────────── */
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+    margin-top: var(--space-8);
+}
+
+@media (max-width: 640px) {
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+}
+
+.feature-item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+}
+
+.feature-item i {
+    color: var(--brand-gold);
+    font-size: 1.5rem;
+    margin-top: 2px;
+    flex-shrink: 0;
+}
+
+.feature-item strong {
+    display: block;
+    color: var(--text-primary);
+    margin-bottom: var(--space-1);
+}
+
+.feature-item p {
+    margin-bottom: 0;
+}
+
+/* ─────────────────────────────────────────────────────
+   STATS GRID
+   ───────────────────────────────────────────────────── */
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+}
+
+@media (max-width: 640px) {
+    .about-stats {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+}

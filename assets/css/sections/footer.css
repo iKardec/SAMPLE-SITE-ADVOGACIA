@@ -1,0 +1,267 @@
+/**
+ * ═══════════════════════════════════════════════════════════
+ * FOOTER SECTION
+ * ═══════════════════════════════════════════════════════════
+ * 
+ * Site footer with contact info, links, and legal info.
+ * Uses the brand navy gradient for consistent branding.
+ * 
+ * Mobile: Collapsible accordion-style sections with
+ * improved spacing and readability.
+ * 
+ * ═══════════════════════════════════════════════════════════
+ */
+
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER BASE
+   ═══════════════════════════════════════════════════════════ */
+
+.footer {
+    background: linear-gradient(135deg, var(--brand-navy) 0%, var(--brand-navy-light) 100%);
+    color: var(--text-inverse);
+    padding: var(--space-20) 0 var(--space-8);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER CONTENT GRID
+   ═══════════════════════════════════════════════════════════ */
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-12);
+    margin-bottom: var(--space-12);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER SECTIONS
+   ═══════════════════════════════════════════════════════════ */
+
+.footer-section h3 {
+    color: var(--brand-gold);
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-5);
+    font-weight: var(--font-bold);
+}
+
+.footer-section p,
+.footer-section a {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: var(--text-sm);
+    line-height: var(--leading-relaxed);
+}
+
+.footer-section a {
+    transition: color var(--transition-base);
+}
+
+.footer-section a:hover {
+    color: var(--brand-gold);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER LINKS
+   ═══════════════════════════════════════════════════════════ */
+
+.footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.footer-links a {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-1) 0;
+    transition: all var(--transition-base);
+}
+
+.footer-links a:hover {
+    color: var(--brand-gold);
+    transform: translateX(6px);
+}
+
+.footer-links a i {
+    width: 16px;
+    color: var(--brand-gold);
+    opacity: 0.7;
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER BOTTOM (Copyright & Legal)
+   ═══════════════════════════════════════════════════════════ */
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    padding-top: var(--space-8);
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-4);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER LEGAL LINKS
+   ═══════════════════════════════════════════════════════════ */
+
+.footer-legal {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+}
+
+.footer-legal a {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: var(--text-sm);
+    transition: color var(--transition-base);
+    padding: var(--space-1) var(--space-2);
+}
+
+.footer-legal a:hover {
+    color: var(--brand-gold);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE - Tablet
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    .footer {
+        padding: var(--space-12) 0 var(--space-6);
+    }
+    
+    .footer-content {
+        gap: var(--space-8);
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE - Mobile (Enhanced Layout)
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 640px) {
+    .footer {
+        padding: 40px 0 24px;
+    }
+    
+    /* Stack sections vertically with better spacing */
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    /* Each section styled as card-like block */
+    .footer-section {
+        text-align: center;
+        padding: var(--space-6) 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .footer-section:last-child {
+        border-bottom: none;
+    }
+    
+    /* Smaller heading on mobile */
+    .footer-section h3 {
+        font-size: var(--text-lg);
+        margin-bottom: var(--space-4);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: var(--space-2);
+    }
+    
+    /* Gold accent before headings */
+    .footer-section h3::before {
+        content: '';
+        width: 20px;
+        height: 2px;
+        background: var(--brand-gold);
+        border-radius: 2px;
+    }
+    
+    .footer-section h3::after {
+        content: '';
+        width: 20px;
+        height: 2px;
+        background: var(--brand-gold);
+        border-radius: 2px;
+    }
+    
+    /* Center links on mobile */
+    .footer-links {
+        align-items: center;
+    }
+    
+    .footer-links a {
+        justify-content: center;
+    }
+    
+    .footer-links a:hover {
+        transform: none;
+    }
+    
+    /* Social links centered */
+    .footer .social-links {
+        justify-content: center;
+        margin-top: var(--space-4);
+    }
+    
+    /* Footer bottom adjustments */
+    .footer-bottom {
+        padding-top: var(--space-6);
+        margin-top: var(--space-2);
+    }
+    
+    .footer-bottom p {
+        font-size: var(--text-xs);
+        line-height: 1.8;
+    }
+    
+    /* Legal links stacked on very small screens */
+    .footer-legal {
+        flex-direction: column;
+        gap: var(--space-2);
+    }
+    
+    .footer-legal a {
+        padding: var(--space-2);
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE - Extra Small (< 360px)
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 360px) {
+    .footer {
+        padding: 32px 12px 20px;
+    }
+    
+    .footer-section {
+        padding: var(--space-5) 0;
+    }
+    
+    .footer-section h3 {
+        font-size: var(--text-base);
+    }
+    
+    .footer-section p,
+    .footer-section a {
+        font-size: var(--text-xs);
+    }
+}

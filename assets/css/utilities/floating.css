@@ -1,0 +1,266 @@
+/**
+ * Floating Elements - Scroll to top, theme toggle, WhatsApp button
+ */
+
+
+/* Scroll to Top */
+
+.scroll-top {
+    position: fixed;
+    bottom: 170px; /* Above theme toggle */
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    
+    /* Styling */
+    background: var(--brand-gold);
+    color: var(--brand-navy);
+    border: none;
+    border-radius: 50%;
+    
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-xl);
+    
+    /* Initially hidden */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    
+    /* Animation */
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 9003;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Visible state (activated via JS) */
+.scroll-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Hover effect */
+.scroll-top:hover {
+    background: var(--brand-gold-light);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   THEME TOGGLE BUTTON (Middle position)
+   ═══════════════════════════════════════════════════════════ */
+
+.theme-toggle {
+    position: fixed;
+    bottom: 110px; /* Above WhatsApp */
+    right: 30px;
+    width: 48px;
+    height: 48px;
+    
+    /* Styling */
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-medium);
+    border-radius: 50%;
+    
+    /* Layout */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-lg);
+    
+    /* Animation */
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    z-index: 9002;
+}
+
+/* Hover effect */
+.theme-toggle:hover {
+    background: var(--brand-gold);
+    color: var(--brand-navy);
+    border-color: var(--brand-gold);
+    transform: rotate(360deg);
+    box-shadow: var(--shadow-gold);
+}
+
+/* Icon visibility based on theme */
+.theme-toggle .fa-sun { display: none; }
+.theme-toggle .fa-moon { display: block; }
+
+[data-theme="dark"] .theme-toggle .fa-sun { display: block; }
+[data-theme="dark"] .theme-toggle .fa-moon { display: none; }
+
+
+/* ═══════════════════════════════════════════════════════════
+   WHATSAPP FLOATING BUTTON (Bottom position)
+   ═══════════════════════════════════════════════════════════ */
+
+.whatsapp-float {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 9001;
+}
+
+.whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    
+    /* WhatsApp green gradient */
+    background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+    border-radius: 50%;
+    
+    /* Icon */
+    color: #FFFFFF;
+    font-size: 32px;
+    text-decoration: none;
+    
+    /* Effects */
+    box-shadow: 0 6px 30px rgba(37, 211, 102, 0.5);
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Pulse animation ring */
+.whatsapp-btn::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #25D366;
+    z-index: -1;
+    animation: whatsappPulse 2s ease-out infinite;
+}
+
+@keyframes whatsappPulse {
+    0% { transform: scale(1); opacity: 0.5; }
+    100% { transform: scale(1.8); opacity: 0; }
+}
+
+/* Hover effect */
+.whatsapp-btn:hover {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 10px 40px rgba(37, 211, 102, 0.6);
+}
+
+/* ─── WHATSAPP TOOLTIP ─── */
+.whatsapp-tooltip {
+    position: absolute;
+    right: 75px;
+    top: 50%;
+    transform: translateY(-50%) translateX(10px);
+    
+    /* Styling */
+    background: var(--brand-navy);
+    color: #FFFFFF;
+    padding: 10px 18px;
+    border-radius: 10px;
+    
+    /* Typography */
+    font-size: var(--text-sm);
+    font-weight: var(--font-semibold);
+    white-space: nowrap;
+    
+    /* Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    
+    /* Effects */
+    box-shadow: var(--shadow-lg);
+    transition: all 0.3s ease;
+}
+
+/* Tooltip arrow */
+.whatsapp-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 8px solid transparent;
+    border-left-color: var(--brand-navy);
+}
+
+/* Show tooltip on hover */
+.whatsapp-float:hover .whatsapp-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-50%) translateX(0);
+}
+
+
+/* ═══════════════════════════════════════════════════════════
+   RESPONSIVE - Tablet & Mobile
+   ═══════════════════════════════════════════════════════════ */
+
+@media (max-width: 768px) {
+    /* Adjust positions for smaller screens */
+    .scroll-top {
+        bottom: 155px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+    }
+    
+    .theme-toggle {
+        bottom: 100px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+    }
+    
+    .whatsapp-float {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-btn {
+        width: 54px;
+        height: 54px;
+        font-size: 28px;
+    }
+    
+    /* Hide tooltip on mobile */
+    .whatsapp-tooltip {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-top {
+        bottom: 140px;
+        right: 16px;
+        width: 42px;
+        height: 42px;
+    }
+    
+    .theme-toggle {
+        bottom: 90px;
+        right: 16px;
+        width: 42px;
+        height: 42px;
+    }
+    
+    .whatsapp-float {
+        bottom: 16px;
+        right: 16px;
+    }
+    
+    .whatsapp-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 26px;
+    }
+}
