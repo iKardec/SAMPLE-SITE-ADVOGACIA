@@ -1,0 +1,743 @@
+/**
+ * ═══════════════════════════════════════════════════════════
+ * ESTILOS GLOBAIS
+ * ═══════════════════════════════════════════════════════════
+ * Estilos fundamentais aplicados em todo o site
+ * Organização
+ * ═══════════════════════════════════════════════════════════
+ */
+
+
+/* ═══════════════════════════════════════════════════════
+   BASE - HTML & BODY
+   ═══════════════════════════════════════════════════════
+*/
+
+html {
+    font-size: 16px;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-secondary);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-regular);
+    line-height: var(--lh-normal);
+    color: var(--color-neutral-charcoal);
+    background-color: var(--color-neutral-white);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   TIPOGRAFIA - HEADINGS E TEXTOS
+   ═══════════════════════════════════════════════════════
+*/
+
+/* ─────────── Headings ─────────── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-primary);
+    font-weight: var(--fw-bold);
+    line-height: var(--lh-tight);
+    color: var(--color-primary-navy);
+    margin: 0 0 var(--space-4);
+    letter-spacing: var(--ls-tight);
+}
+
+h1 {
+    font-size: var(--fs-h1);
+    font-weight: var(--fw-extrabold);
+    letter-spacing: var(--ls-tighter);
+}
+
+h2 {
+    font-size: var(--fs-h2);
+    font-weight: var(--fw-bold);
+}
+
+h3 {
+    font-size: var(--fs-h3);
+    font-weight: var(--fw-semibold);
+}
+
+h4 {
+    font-size: var(--fs-h4);
+    font-weight: var(--fw-semibold);
+}
+
+h5 {
+    font-size: var(--fs-h5);
+    font-weight: var(--fw-medium);
+}
+
+h6 {
+    font-size: var(--fs-h6);
+    font-weight: var(--fw-medium);
+}
+
+/* ─────────── Parágrafos ─────────── */
+p {
+    margin: 0 0 var(--space-4);
+    color: var(--color-neutral-slate);
+    line-height: var(--lh-relaxed);
+}
+
+p.lead {
+    font-size: var(--fs-body-lg);
+    font-weight: var(--fw-light);
+    color: var(--color-neutral-silver);
+}
+
+/* ─────────── Links ─────────── */
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: color var(--transition-normal);
+}
+
+a:hover {
+    color: var(--color-accent-gold);
+}
+
+a:focus-visible {
+    outline: 2px solid var(--color-accent-gold);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+}
+
+/* ─────────── Text Utilities ─────────── */
+strong,
+b {
+    font-weight: var(--fw-bold);
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+small {
+    font-size: var(--fs-small);
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   LAYOUT - CONTAINERS E ESTRUTURAS
+   ═══════════════════════════════════════════════════════
+*/
+
+/* ─────────── Container Principal ─────────── */
+.container {
+    width: 100%;
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 var(--space-8);
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        max-width: var(--container-2xl);
+    }
+}
+
+/* ─────────── Container Fluido ─────────── */
+.container-fluid {
+    width: 100%;
+    padding: 0 var(--space-6);
+}
+
+/* ─────────── Grid System ─────────── */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 calc(-1 * var(--grid-gap-md) / 2);
+}
+
+.col {
+    flex: 1;
+    padding: 0 calc(var(--grid-gap-md) / 2);
+    min-width: 0;
+    /* Previne overflow */
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   SEÇÕES - ESPAÇAMENTO E BACKGROUNDS
+   ═══════════════════════════════════════════════════════
+*/
+
+section {
+    padding: var(--section-space-mobile) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+@media (min-width: 768px) {
+    section {
+        padding: var(--section-space-tablet) 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    section {
+        padding: var(--section-space-desktop) 0;
+    }
+}
+
+/* ─────────── Section Titles ─────────── */
+.section-title {
+    text-align: center;
+    margin-bottom: var(--space-12);
+}
+
+.section-title h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: var(--space-4);
+}
+
+.section-title h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--gradient-gold);
+    border-radius: var(--radius-full);
+}
+
+.section-subtitle {
+    font-size: var(--fs-body-lg);
+    color: var(--color-neutral-silver);
+    max-width: 700px;
+    margin: var(--space-4) auto 0;
+    line-height: var(--lh-relaxed);
+}
+
+/* ─────────── Background Variations ─────────── */
+section.bg-light {
+    background-color: var(--color-neutral-ghost);
+}
+
+section.bg-dark {
+    background: var(--gradient-primary);
+    color: var(--color-neutral-white);
+}
+
+section.bg-dark h1,
+section.bg-dark h2,
+section.bg-dark h3 {
+    color: var(--color-neutral-white);
+}
+
+section.bg-dark p {
+    color: var(--color-neutral-smoke);
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   BOTÕES - SISTEMA COMPLETO
+   ═══════════════════════════════════════════════════════
+*/
+
+.btn {
+    /* Reset */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+
+    /* Espaçamento */
+    padding: var(--space-4) var(--space-8);
+
+    /* Tipografia */
+    font-family: var(--font-primary);
+    font-size: var(--fs-body);
+    font-weight: var(--fw-semibold);
+    text-align: center;
+    text-decoration: none;
+    letter-spacing: var(--ls-wide);
+
+    /* Visual */
+    border-radius: var(--radius-lg);
+    border: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    user-select: none;
+
+    /* Transição */
+    transition: all var(--transition-normal);
+
+    /* Estados */
+    outline: none;
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* ─────────── Botão Primário (Dourado) ─────────── */
+.btn-primary {
+    background: var(--gradient-gold);
+    color: var(--color-primary-navy);
+    border-color: var(--color-accent-gold);
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+    background: var(--color-accent-gold-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ─────────── Botão Secundário (Outline Azul) ─────────── */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary-blue);
+    border-color: var(--color-primary-blue);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary-blue);
+    color: var(--color-neutral-white);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ─────────── Botão Outline (Branco) ─────────── */
+.btn-outline {
+    background-color: transparent;
+    color: var(--color-neutral-white);
+    border-color: var(--color-neutral-white);
+}
+
+.btn-outline:hover {
+    background-color: var(--color-neutral-white);
+    color: var(--color-primary-navy);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ─────────── Tamanhos de Botão ─────────── */
+.btn-sm {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--fs-small);
+}
+
+.btn-lg {
+    padding: var(--space-5) var(--space-12);
+    font-size: var(--fs-body-lg);
+}
+
+.btn-xl {
+    padding: var(--space-6) var(--space-16);
+    font-size: var(--fs-h5);
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   IMAGENS - RESPONSIVAS E OTIMIZADAS
+   ═══════════════════════════════════════════════════════
+*/
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.img-contain {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.img-rounded {
+    border-radius: var(--radius-lg);
+}
+
+.img-circle {
+    border-radius: var(--radius-full);
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   UTILIDADES - CLASSES AUXILIARES
+   ═══════════════════════════════════════════════════════
+*/
+
+/* ─────────── Texto ─────────── */
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+    letter-spacing: var(--ls-wider);
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+/* Cores de Texto */
+.text-gold {
+    color: var(--color-accent-gold);
+}
+
+.text-primary {
+    color: var(--color-primary-navy);
+}
+
+.text-secondary {
+    color: var(--color-neutral-slate);
+}
+
+.text-muted {
+    color: var(--color-neutral-silver);
+}
+
+.text-white {
+    color: var(--color-neutral-white);
+}
+
+/* ─────────── Display ─────────── */
+.d-none {
+    display: none;
+}
+
+.d-block {
+    display: block;
+}
+
+.d-inline {
+    display: inline;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-inline-flex {
+    display: inline-flex;
+}
+
+.d-grid {
+    display: grid;
+}
+
+/* ─────────── Flexbox ─────────── */
+.flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-between {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.gap-1 {
+    gap: var(--space-1);
+}
+
+.gap-2 {
+    gap: var(--space-2);
+}
+
+.gap-3 {
+    gap: var(--space-3);
+}
+
+.gap-4 {
+    gap: var(--space-4);
+}
+
+.gap-6 {
+    gap: var(--space-6);
+}
+
+.gap-8 {
+    gap: var(--space-8);
+}
+
+/* ─────────── Grid ─────────── */
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: var(--grid-gap-lg);
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+    gap: var(--grid-gap-lg);
+}
+
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: var(--grid-gap-md);
+}
+
+/* ─────────── Espaçamento - Margins ─────────── */
+.m-0 {
+    margin: 0;
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.ml-0 {
+    margin-left: 0;
+}
+
+.mr-0 {
+    margin-right: 0;
+}
+
+.mt-1 {
+    margin-top: var(--space-1);
+}
+
+.mt-2 {
+    margin-top: var(--space-2);
+}
+
+.mt-3 {
+    margin-top: var(--space-3);
+}
+
+.mt-4 {
+    margin-top: var(--space-4);
+}
+
+.mt-6 {
+    margin-top: var(--space-6);
+}
+
+.mt-8 {
+    margin-top: var(--space-8);
+}
+
+.mb-1 {
+    margin-bottom: var(--space-1);
+}
+
+.mb-2 {
+    margin-bottom: var(--space-2);
+}
+
+.mb-3 {
+    margin-bottom: var(--space-3);
+}
+
+.mb-4 {
+    margin-bottom: var(--space-4);
+}
+
+.mb-6 {
+    margin-bottom: var(--space-6);
+}
+
+.mb-8 {
+    margin-bottom: var(--space-8);
+}
+
+/* ─────────── Espaçamento - Padding ─────────── */
+.p-0 {
+    padding: 0;
+}
+
+.p-1 {
+    padding: var(--space-1);
+}
+
+.p-2 {
+    padding: var(--space-2);
+}
+
+.p-3 {
+    padding: var(--space-3);
+}
+
+.p-4 {
+    padding: var(--space-4);
+}
+
+.p-6 {
+    padding: var(--space-6);
+}
+
+.p-8 {
+    padding: var(--space-8);
+}
+
+/* ─────────── Animações ─────────── */
+.fade-in {
+    animation: fadeIn var(--duration-slow) var(--ease-expo) forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-up {
+    animation: slideUp var(--duration-normal) var(--ease-out);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ─────────── Loading/Spinner ─────────── */
+.loading {
+    position: relative;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 3px solid var(--color-neutral-smoke);
+    border-top-color: var(--color-accent-gold);
+    border-radius: var(--radius-full);
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+
+/* ═══════════════════════════════════════════════════════
+   RESPONSIVIDADE - AJUSTES POR BREAKPOINT
+   ═══════════════════════════════════════════════════════
+*/
+
+/* ─────────── Desktop (1024px+) ─────────── */
+@media (min-width: 1024px) {
+    .desktop-only {
+        display: block;
+    }
+
+    .mobile-only {
+        display: none;
+    }
+}
+
+/* ─────────── Mobile (< 1024px) ─────────── */
+@media (max-width: 1023px) {
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: block;
+    }
+
+    /* Botões full-width em mobile */
+    .btn-mobile-full {
+        width: 100%;
+    }
+
+    /* Typography ajustments */
+    h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+
+    h2 {
+        font-size: clamp(1.75rem, 6vw, 2.25rem);
+    }
+}
+
+/* ─────────── Tablet (768px - 1023px) ─────────── */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        padding: 0 var(--space-6);
+    }
+}
